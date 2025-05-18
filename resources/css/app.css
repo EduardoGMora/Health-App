@@ -4,7 +4,18 @@
 
 /* Personalización */
 .btn-primary {
-    @apply bg-mindcare-blue text-white px-4 py-2 rounded-md hover:bg-opacity-80 transition;
+    @apply bg-mindcare-blue text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition;
+}
+
+/* Paginación personalizada */
+.pagination {
+    @apply flex justify-center mt-8;
+}
+.pagination > * {
+    @apply mx-1 px-4 py-2 bg-white border rounded-md;
+}
+.pagination .active {
+    @apply bg-mindcare-blue text-white border-mindcare-blue;
 }
 
 input[type="range"]::-webkit-slider-thumb {

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
@@ -49,5 +50,15 @@ class User extends Authenticatable
     public function diaryEntries()
     {
         return $this->hasMany(DiaryEntry::class);
+    }
+
+    public function exercises()
+    {
+        return $this->hasMany(Exercise::class);
+    }
+
+    public function resources()
+    {
+        return $this->hasMany(Resource::class);
     }
 }

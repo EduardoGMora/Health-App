@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-mindcare-blue mb-6">Comunidad</h1>
     <!-- Formulario nuevo post -->
     <div class="bg-white p-6 rounded-lg shadow-md mb-8">
         <form action="{{ route('community.store') }}" method="POST">

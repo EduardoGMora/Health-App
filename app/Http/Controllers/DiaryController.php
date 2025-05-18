@@ -44,7 +44,7 @@ class DiaryController extends Controller
             'notes' => $request->notes,
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Registro guardado!');
+        return redirect()->route('diary.index')->with('success', 'Registro guardado!');
     }
 
     /**

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Exercise;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,13 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+
+        Exercise::create([
+            'user_id' => 1, // ← No olvides este campo
+            'title' => 'Meditación guiada',
+            'type' => 'meditation',
+            'duration_minutes' => 10
         ]);
     }
 }

@@ -6,23 +6,14 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::redirect('/', '/dashboard');
 
 Route::middleware(['auth'])->group(function () {
     // Dashboard
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
     // Diario
     Route::resource('diary', DiaryController::class)->only([
         'index', 'create', 'store'
@@ -39,9 +30,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/exercises', [ExerciseController::class, 'index'])->name('exercises.index');
 
     // profile
-    
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
