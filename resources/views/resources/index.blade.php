@@ -12,7 +12,8 @@
     <div class="flex space-x-2 mb-6">
         @foreach($categories as $cat)
             <a href="?category={{ $cat }}" 
-               class="px-4 py-2 rounded-full {{ $category == $cat ? 'bg-mindcare-green text-white' : 'bg-gray-200' }}">
+                class="px-4 py-2 rounded-full {{ request('category', 'ansiedad') == $cat ? 'bg-mindcare-green text-white' : 'bg-gray-200' }}"
+                aria-current="{{ request('category') == $cat ? 'true' : 'false' }}">
                 {{ ucfirst($cat) }}
             </a>
         @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommunityController extends Controller
 {
@@ -22,8 +23,8 @@ class CommunityController extends Controller
         ]);
 
         Post::create([
-            'user_id' => auth()->id(),
-            'username' => $request->anonymous ? 'Anónimo' : auth()->user()->name,
+            'user_id' => Auth::id(),
+            'username' => $request->anonymous ? 'Anónimo' : Auth::user()->name,
             'title' => $request->title,
             'body' => $request->body,
             'category' => $request->category

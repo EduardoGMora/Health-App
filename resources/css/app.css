@@ -6,3 +6,12 @@
 .btn-primary {
     @apply bg-mindcare-blue text-white px-4 py-2 rounded-md hover:bg-opacity-80 transition;
 }
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #A5D8FF; /* mindcare-blue */
+    border-radius: 50%;
+    cursor: pointer;
+}
